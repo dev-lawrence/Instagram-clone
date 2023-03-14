@@ -8,12 +8,13 @@
 
 :root {
   --white-clr: #fafafa;
+  --black-clr: #000;
 }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif;
-  background-color: #000;
+  background-color: var(--black-clr);
   color: var(--white-clr);
 }
 
@@ -42,7 +43,7 @@ img {
   padding: 0 1rem;
 }
 
-/* Left sidebar */
+/* LEFT SIDEBAR */
 .left-sidebar {
   position: fixed;
   height: 100%;
@@ -78,8 +79,42 @@ img {
   margin-right: 1rem;
 }
 
-.left-sidebar li a svg {
+.left-sidebar li a svg,
+.left-sidebar li a img {
   transition: transform 0.3s ease;
+}
+
+.left-sidebar .message,
+.left-sidebar .notification {
+  position: relative;
+}
+
+.left-sidebar .message::after,
+.left-sidebar .notification::after {
+  border-radius: 50%;
+  background-color: #ff3040;
+  border: 2px solid var(--black-clr);
+  position: absolute;
+}
+
+.left-sidebar .message::after {
+  content: '2';
+  height: 17px;
+  width: 17px;
+  top: 0.2rem;
+  left: 1.2rem;
+  font-size: 0.7rem;
+  display: grid;
+  place-content: center;
+}
+
+.left-sidebar .notification::after {
+  content: '';
+  height: 9px;
+  width: 9px;
+
+  top: 0.6rem;
+  left: 1.5rem;
 }
 
 .left-sidebar .active {
@@ -101,8 +136,9 @@ img {
   background-color: rgb(18, 18, 18);
 }
 
-.left-sidebar .nav a:hover svg {
+.left-sidebar .nav a:hover svg,
+.left-sidebar .nav a:hover img {
   transform: scale(1.1);
 }
 
-/* Media query */
+/* MEDIA QUERY */
